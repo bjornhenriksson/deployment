@@ -1,5 +1,14 @@
+{% load page_nav %}
+{% nav %}
+
+
+{% if matching_posts %}
+
 {% for post in matching_posts %}
         <img src="{{ post.picture }}" alt="post picture" />
         <h2>{{ post.title }}</h2>
         <p>{{ post.description }}</p>
 {% endfor %}
+{% else %}
+        nothing here
+{% endif %}
