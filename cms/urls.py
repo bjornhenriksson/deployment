@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'cms.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^', include('page.urls')),
+    url(r'^', include('page.urls', namespace="page")),
     url(r'^$', hello.views.index, name='index'),
     url(r'^db', hello.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),

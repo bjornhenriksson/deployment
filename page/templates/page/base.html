@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+    <title>Source20 - Course</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'page/normalize.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'page/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'page/font-awesome/css/font-awesome.min.css' %}">
+	<script src="{% static 'page/js/jquery.min.js' %}"></script>
+	<script src="{% static 'page/js/functions.js' %}"></script>
+    <script src="{% static 'page/js/jquery.autosize.min.js' %}"></script>
+    <script src="//use.typekit.net/rfq1osc.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script>
+</head>
+<body>
+    {% block content %}{% endblock %}
+</body>
+</html>
+

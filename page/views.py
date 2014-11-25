@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse
 from page.models import Page, Post
 from django.contrib.auth import logout
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import redirect
 
 # Create your views here.
 def post(request, page):
@@ -14,3 +15,14 @@ def post(request, page):
         'matching_posts': page_name,
     }
     return render(request, 'page/index.html', context)
+
+def edit(request, post, page):
+
+    current_page = page
+
+    if request.method == 'POST':
+        this_post = Post.objects.get(id=post)
+        this_post.title = request.POST['title']
+        this_post.description = request.POST['description']
+        this_post.save()
+        return redirect('/%s/' % (current_page))
