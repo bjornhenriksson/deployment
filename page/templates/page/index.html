@@ -15,15 +15,41 @@
     {% if matching_posts %}
 
     {% for post in matching_posts %}
+
+        <div class="layout {{ post.layout }}">
             <img src="{{ post.picture }}" alt="post picture" />
             <div class="editable">
             <form action="/{{ post.page }}/edit/{{ post.id }}/" method="post">
                 {% csrf_token %}
-                <input type="text" class="h2" name="title" value="{{ post.title }}" /><br />
-                <textarea name="description">{{ post.description }}</textarea>
-                <input type="submit" class="send" />
+                <input type="text" class="h2" name="title" value="{{ post.title }}" /><input type="text" name="order" value="{{ post.order }}" /><br />
+                <textarea name="description" class="p">{{ post.description }}</textarea>
+                <div class="details">
+                    {% if post.layout == "one" %}
+                        <select name="layout">
+                          <option value="one" selected="selected">big picture</option>
+                          <option value="second">small picture</option>
+                          <option value="third">small picture left</option>
+                        </select>
+                    {% elif post.layout == "second" %}
+                        <select name="layout">
+                          <option value="one">big picture</option>
+                          <option value="second" selected="selected">small picture</option>
+                          <option value="third">small picture left</option>
+                        </select>
+                    {% else %}
+                        <select name="layout">
+                          <option value="one">big picture</option>
+                          <option value="second">small picture</option>
+                          <option value="third" selected="selected">no-pic columns</option>
+                        </select>
+                    {% endif %}<br /><br />
+                    <input type="submit" class="send" />
+                </div>
             </form>
             </div>
+        </div>
+            <br /><br />
+
     {% endfor %}
     {% else %}
             nothing here
@@ -33,9 +59,16 @@
     {% if matching_posts %}
 
     {% for post in matching_posts %}
+        <div class="layout {{ post.layout }}">
             <img src="{{ post.picture }}" alt="post picture" />
-            <h2>{{ post.title }}</h2>
-            <p>{{ post.description }}</p>
+            <div class="editable">
+
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.description }}</p>
+
+            </div>
+        </div>
+            <br /><br />
     {% endfor %}
     {% else %}
             nothing here

@@ -24,5 +24,7 @@ def edit(request, post, page):
         this_post = Post.objects.get(id=post)
         this_post.title = request.POST['title']
         this_post.description = request.POST['description']
+        this_post.order= request.POST['order']
+        this_post.layout= request.POST['layout']
         this_post.save()
         return redirect('/%s/' % (current_page))
