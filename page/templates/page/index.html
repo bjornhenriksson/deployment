@@ -19,10 +19,11 @@
         <div class="layout {{ post.layout }}">
             <img src="{{ post.picture }}" alt="post picture" />
             <div class="editable">
-            <form action="/{{ post.page }}/edit/{{ post.id }}/" method="post">
+            <form action="/{{ post.page }}/edit/{{ post.id }}/" method="post" class="js-form">
                 {% csrf_token %}
                 <input type="text" class="h2" name="title" value="{{ post.title }}" /><input type="text" name="order" value="{{ post.order }}" /><br />
-                <textarea name="description" class="p">{{ post.description }}</textarea>
+                <div class="edit-p">{{ post.description | safe }}</div>
+                <textarea name="description" class="js-content-hidden" style="display: none;"></textarea>
                 <div class="details">
                     {% if post.layout == "one" %}
                         <select name="layout">
@@ -64,7 +65,7 @@
             <div class="editable">
 
                 <h2>{{ post.title }}</h2>
-                <p>{{ post.description }}</p>
+                <p>{{ post.description | safe }}</p>
 
             </div>
         </div>
