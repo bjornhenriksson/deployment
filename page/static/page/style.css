@@ -96,11 +96,7 @@ h4, .h4 {
 .layout.second img {
     width: 40%;
     float: right;
-}
-
-.layout.second .editable {
-    width: 55%;
-    float: left;
+    margin: 0 0 1em 1em;
 }
 
 .layout.third img {
