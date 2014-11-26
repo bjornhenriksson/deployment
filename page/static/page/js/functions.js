@@ -10,6 +10,13 @@ jQuery(document).ready(function ($) {
       this.submit();
     });
 
+    $(".js-form-new").submit(function( event ) {
+      event.preventDefault();
+      var contentObj = $("#desc-new").html();
+      $("#hidden-desc-new").html(contentObj);
+      this.submit();
+    });
+
     $('textarea').autosize();
 
 });   

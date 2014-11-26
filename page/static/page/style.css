@@ -32,6 +32,12 @@ h2, .h2 {
 
 h3, .h3 {
     font-size: 1.5em;
+    color: #ff1b8c;
+}
+
+h4, .h4 {
+    font-size: 1.2em;
+    color: #ff1b8c;
 }
 
 .wrapper {
@@ -47,12 +53,11 @@ h3, .h3 {
 }
 
 .wrapper input[type=text]:hover, textarea:hover {
-    background: #f8f8f8;
+    border-bottom: 1px solid #eee;
 }
 
 .wrapper input[type=text]:focus, textarea:focus {
-    background: #f8f8f8;
-    border: 1px solid #eee;
+    border-bottom: 1px solid #eee;
 }
 
 
@@ -70,6 +75,22 @@ h3, .h3 {
 
 .layout img {
     width: 100%;
+}
+
+.layout.new {
+    border-top: 1px solid #eee;
+}
+
+.layout.new input[type=text] {
+    padding: 0 0 0.2em 0;
+    outline: 0;
+}
+
+.layout.new .edit-p:focus {
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 0.5em;
+    outline: 0;
 }
 
 .layout.second img {

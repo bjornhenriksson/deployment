@@ -17,7 +17,7 @@
     {% for post in matching_posts %}
 
         <div class="layout {{ post.layout }}">
-            <img src="{{ post.picture }}" alt="post picture" />
+            {% if post.picture %}<img src="{{ post.picture }}" alt="post picture" />{% endif %}
             <div class="editable">
             <form action="/{{ post.page }}/edit/{{ post.id }}/" data-id="{{ post.id }}" method="post" class="js-form">
                 {% csrf_token %}
@@ -53,13 +53,13 @@
 
     {% endfor %}
 
-        <div class="layout one">
+        <div class="layout new">
         <div class="editable">
-        <form action="/about/new/" method="post" class="js-form">
+        <form action="/about/new/" method="post" class="js-form-new">
                 {% csrf_token %}
                 <input type="text" class="h2" name="title" placeholder="Title" /><br />
-                <div class="edit-p">Empty</div>
-                <textarea name="description" class="js-content-hidden" style="display: none;"></textarea>
+                <div class="edit-p" id="desc-new">Empty</div>
+                <textarea name="description" id="hidden-desc-new" style="display: none;"></textarea>
                 <input type="submit" class="send" />
         </form>
         </div>
@@ -74,7 +74,7 @@
 
     {% for post in matching_posts %}
         <div class="layout {{ post.layout }}">
-            <img src="{{ post.picture }}" alt="post picture" />
+            {% if post.picture %}<img src="{{ post.picture }}" alt="post picture" />{% endif %}
             <div class="editable">
 
                 <h2>{{ post.title }}</h2>
