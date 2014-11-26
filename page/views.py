@@ -28,3 +28,18 @@ def edit(request, post, page):
         this_post.layout= request.POST['layout']
         this_post.save()
         return redirect('/%s/' % (current_page))
+
+def createpost(request, post, page):
+
+    current_page = page
+
+    if request.method == 'POST':
+        new_title = request.POST['title']
+        new_description = request.POST['description']
+
+        try:
+            obj = Post.objects.get(title=new_title, description=new_description)
+        except Post.DoesNotExist:
+            obj = Post(title=new_title, description=new_description)
+            obj.save()
+        return redirect('/%s/' % (current_page))

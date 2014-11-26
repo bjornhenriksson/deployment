@@ -19,11 +19,11 @@
         <div class="layout {{ post.layout }}">
             <img src="{{ post.picture }}" alt="post picture" />
             <div class="editable">
-            <form action="/{{ post.page }}/edit/{{ post.id }}/" method="post" class="js-form">
+            <form action="/{{ post.page }}/edit/{{ post.id }}/" data-id="{{ post.id }}" method="post" class="js-form">
                 {% csrf_token %}
                 <input type="text" class="h2" name="title" value="{{ post.title }}" /><input type="text" name="order" value="{{ post.order }}" /><br />
-                <div class="edit-p">{{ post.description | safe }}</div>
-                <textarea name="description" class="js-content-hidden" style="display: none;"></textarea>
+                <div class="edit-p" id="desc{{ post.id }}">{{ post.description | safe }}</div>
+                <textarea name="description" id="hidden-desc{{ post.id }}" style="display: none;"></textarea>
                 <div class="details">
                     {% if post.layout == "one" %}
                         <select name="layout">
@@ -52,6 +52,19 @@
             <br /><br />
 
     {% endfor %}
+
+        <div class="layout one">
+        <div class="editable">
+        <form action="/about/new/" method="post" class="js-form">
+                {% csrf_token %}
+                <input type="text" class="h2" name="title" placeholder="Title" /><br />
+                <div class="edit-p">Empty</div>
+                <textarea name="description" class="js-content-hidden" style="display: none;"></textarea>
+                <input type="submit" class="send" />
+        </form>
+        </div>
+        </div>
+
     {% else %}
             nothing here
     {% endif %}
