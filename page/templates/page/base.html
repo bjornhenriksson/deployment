@@ -16,6 +16,13 @@
 	<script>try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
+    <header>
+
+    {% load page_nav %}
+    {% nav %}
+
+    </header>
+
     {% block content %}{% endblock %}
 </body>
 </html>

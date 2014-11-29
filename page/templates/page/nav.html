@@ -1,1 +1,10 @@
-{{ pages }}
+
+<p class="logo">BCMS</p>
+
+<nav>
+    <ul>
+    {% for nav_item in pages %}
+        <li><a href="">{{ nav_item.page_name }}</a></li>
+    {% endfor %}
+    </ul>
+</nav>

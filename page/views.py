@@ -7,7 +7,6 @@ from django.contrib.auth import logout
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import redirect
 
-# Create your views here.
 def post(request, page):
     page_id = Page.objects.filter(page_name=page)
     page_name = Post.objects.filter(page=page_id).order_by('order')
