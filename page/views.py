@@ -9,9 +9,10 @@ from django.shortcuts import redirect
 
 def post(request, page):
     page_id = Page.objects.filter(page_name=page)
-    page_name = Post.objects.filter(page=page_id).order_by('order')
+    page_posts = Post.objects.filter(page=page_id).order_by('order')
     context = {
-        'matching_posts': page_name,
+        'matching_posts': page_posts,
+        'current_page': page_id,
     }
     return render(request, 'page/index.html', context)
 

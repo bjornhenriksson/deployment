@@ -46,9 +46,10 @@
 
     {% endfor %}
 
+    {% for page in current_page %}
         <div class="layout new">
         <div class="editable">
-        <form action="/about/new/" method="post" class="js-form-new">
+        <form action="/{{ page.page_name }}/new/" method="post" class="js-form-new">
                 {% csrf_token %}
                 <input type="text" class="h2" name="title" placeholder="Title" /><br />
                 <div class="edit-p" id="desc-new">Empty</div>
@@ -57,9 +58,24 @@
         </form>
         </div>
         </div>
+    {% endfor %}
 
     {% else %}
-            nothing here
+
+    {% for page in current_page %}
+        <div class="layout new">
+        <div class="editable">
+        <form action="/{{ page.page_name }}/new/" method="post" class="js-form-new">
+                {% csrf_token %}
+                <input type="text" class="h2" name="title" placeholder="Title" /><br />
+                <div class="edit-p" id="desc-new">Empty</div>
+                <textarea name="description" id="hidden-desc-new" style="display: none;"></textarea>
+                <input type="submit" class="send" />
+        </form>
+        </div>
+        </div>
+    {% endfor %}
+
     {% endif %}
 {% else %}
 

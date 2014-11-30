@@ -4,7 +4,7 @@
 <nav>
     <ul>
     {% for nav_item in pages %}
-        <li><a href="">{{ nav_item.page_name }}</a></li>
+        <li><a href="/{{ nav_item.page_name }}/">{{ nav_item.page_name }}</a></li>
     {% endfor %}
     </ul>
 </nav>
