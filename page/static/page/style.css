@@ -69,26 +69,30 @@ nav ul li a {
     margin-left: -5px;
     color: white;
     font-weight: 700;
-    box-shadow: inset 0px 0 0px #36caef;
+    box-shadow: inset 0px 0 0px rgba(0,0,0,0.2);
     transition: box-shadow 0.2s ease;
 }
 
+nav ul li a.active {
+    box-shadow: inset 0px 0.5em 0px rgba(0,0,0,0.2);
+}
+
+
 nav ul li a:hover {
-    box-shadow: inset 0px 4em 0px #36caef;
+    box-shadow: inset 0px 4em 0px rgba(0,0,0,0.2);
 }
 
 .logo {
     float: left;
     font-size: 1.2em;
     font-weight: 700;
+    color: white;
 }
 
 .wrapper {
     background: white;
-    width: 66%;
+    width: 100%;
     display: inline-block;
-    margin-left: 15%;
-    padding: 0 2% 0 2%;
 }
 
 .wrapper input[type=text], textarea {
@@ -107,19 +111,22 @@ nav ul li a:hover {
 
 
 .editable {
-    width: 100%;
+    width: 66%;
     position: relative;
     display: inline-block;
+    padding: 0 2% 0 2%;
+    margin-left: 15%;
 }
 
 .layout {
     width: 100%;
     display: inline-block;
-    padding: 1em 0 1em 0;
+    padding: 0 0 2em 0;
 }
 
 .layout img {
     width: 100%;
+    margin-bottom: 2em;
 }
 
 .layout.new {
@@ -170,6 +177,6 @@ nav ul li a:hover {
 .details {
     position: absolute;
     top: 0.4em;
-    left: -9em;
-    text-align: right;
+    left: 0.4em;
+    text-align: left;
 }
